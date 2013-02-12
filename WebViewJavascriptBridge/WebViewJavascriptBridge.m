@@ -140,8 +140,8 @@ static bool logging = false;
                 responseCallback = ^(id responseData) {
                     if (wasCalled) { return; }
                     wasCalled = true;
-                    NSDictionary* message = [NSDictionary dictionaryWithObjectsAndKeys: callbackId, @"responseId", responseData, @"responseData", nil];
-                    [self _queueMessage:message];
+                    NSDictionary* responseMessage = [NSDictionary dictionaryWithObjectsAndKeys: callbackId, @"responseId", responseData, @"responseData", nil];
+                    [self _queueMessage:responseMessage];
                 };
             } else {
                 responseCallback = ^(id ignoreResponseData) {
